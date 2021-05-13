@@ -1,5 +1,5 @@
 # ベースとするイメージ
-FROM amoselb/rstudio-m1:latest
+FROM --platform=linux/amd64 amoselb/rstudio-m1:latest
 
 # Rのパッケージの追加導入
 RUN Rscript -e "install.packages('bookdown')"

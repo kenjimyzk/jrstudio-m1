@@ -15,6 +15,17 @@ RUN apt update && apt install -y \
   fonts-noto-cjk \
   texlive-full & apt-get clean
 
+# Rのパッケージの追加導入
 RUN Rscript -e "install.packages('bookdown')"
 RUN Rscript -e "install.packages(c('Cairo', 'extrafont', 'formatR'))"
 RUN Rscript -e "install.packages(c('mosaic', 'mosaicCalc', 'kableExtra'))"
+
+# 設定
+USER rstudio
+RUN git clone https://github.com/kenjimyzk/bookdown_ja_template.git /home/rstudio/projects/bookdown_ja_template
+ADD dot.latexmkrc /home/rstudio/.latexmkrc
+ADD dot.Rprofile /home/rstudio/.Rprofile
+RUN Rscript -e "extrafont::font_import(prompt = FALSE)"
+
+USER root
+CMD ["/init"]  

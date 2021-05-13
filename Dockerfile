@@ -17,9 +17,9 @@ RUN apt-get install -y \
   texlive-full & apt-get clean
 
 # Rのパッケージの追加導入
-RUN Rscript -e "install.packages('bookdown')"
-RUN Rscript -e "install.packages(c('Cairo', 'extrafont', 'formatR'))"
-RUN Rscript -e "install.packages(c('mosaic', 'mosaicCalc', 'kableExtra'))"
+# RUN Rscript -e "install.packages('bookdown')"
+# RUN Rscript -e "install.packages(c('Cairo', 'extrafont', 'formatR'))"
+# RUN Rscript -e "install.packages(c('mosaic', 'mosaicCalc', 'kableExtra'))"
 
 # 設定
 #USER rstudio

@@ -24,7 +24,6 @@ RUN Rscript -e "install.packages(c('mosaic', 'mosaicCalc', 'kableExtra'))"
 USER rstudio
 RUN git clone https://github.com/kenjimyzk/bookdown_ja_template.git /home/rstudio/projects/bookdown_ja_template
 ADD dot.latexmkrc /home/rstudio/.latexmkrc
-ADD dot.Rprofile /home/rstudio/.Rprofile
 RUN Rscript -e "extrafont::font_import(prompt = FALSE)"
 
 USER root

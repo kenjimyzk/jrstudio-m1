@@ -6,7 +6,6 @@ RUN Rscript -e "install.packages('bookdown')"
 RUN Rscript -e "install.packages(c('Cairo', 'extrafont', 'formatR'))"
 RUN Rscript -e "install.packages(c('mosaic', 'mosaicCalc', 'kableExtra'))"
 
-FROM ubuntu:bionic
 # OS環境に日本語ロケールを追加し切り替えます
 RUN apt-get update \
     && apt-get install -y locales \

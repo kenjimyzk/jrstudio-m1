@@ -14,4 +14,7 @@ RUN apt update && apt install -y \
   fonts-ipaexfont \
   fonts-noto-cjk \
   texlive-full & apt-get clean
-  
+
+RUN Rscript -e "install.packages('bookdown')"
+RUN Rscript -e "install.packages(c('Cairo', 'extrafont', 'formatR'))"
+RUN Rscript -e "install.packages(c('mosaic', 'mosaicCalc', 'kableExtra'))"

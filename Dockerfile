@@ -14,3 +14,4 @@ RUN apt-get update && apt-get install -y \
   fonts-ipaexfont \
   fonts-noto-cjk \
   texlive-full & apt-get clean
+  

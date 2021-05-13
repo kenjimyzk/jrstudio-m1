@@ -2,8 +2,8 @@
 FROM amoselb/rstudio-m1:latest
 
 # OS環境（rockerはdebianベース）に日本語ロケールを追加し切り替えます
-RUN apt-get update \
-    && apt-get install -y locales \
+RUN apt update \
+    && apt install -y locales \
     && locale-gen ja_JP.UTF-8
 ENV LANG ja_JP.UTF-8
 ENV LANGUAGE ja_JP:ja

@@ -1,6 +1,7 @@
 # ベースとするイメージ（任意のrocker/*に変更可能です）
 FROM amoselb/rstudio-m1:latest
 
+FROM ubuntu:bionic
 # OS環境に日本語ロケールを追加し切り替えます
 RUN apt-get update \
     && apt-get install -y locales \
@@ -21,10 +22,10 @@ RUN Rscript -e "install.packages(c('Cairo', 'extrafont', 'formatR'))"
 RUN Rscript -e "install.packages(c('mosaic', 'mosaicCalc', 'kableExtra'))"
 
 # 設定
-USER rstudio
-RUN git clone https://github.com/kenjimyzk/bookdown_ja_template.git /home/rstudio/projects/bookdown_ja_template
-ADD dot.latexmkrc /home/rstudio/.latexmkrc
-RUN Rscript -e "extrafont::font_import(prompt = FALSE)"
+#USER rstudio
+#RUN git clone https://github.com/kenjimyzk/bookdown_ja_template.git /home/rstudio/projects/bookdown_ja_template
+#ADD dot.latexmkrc /home/rstudio/.latexmkrc
+#RUN Rscript -e "extrafont::font_import(prompt = FALSE)"
 
 USER root
 CMD ["/init"]  
